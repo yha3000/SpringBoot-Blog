@@ -6,4 +6,4 @@
 
 "DATABASE : JPA, Hibernate, Mysql"
 
-"ETC:RESTAPI, JackSon, lombok, JSON, Ajax"
+"ETC : RESTAPI, JackSon, lombok, JSON, Ajax"
