@@ -7,6 +7,9 @@ let index = {
 //		$("#btn-login").on("click", ()=> { // function(){} 대신 ()=>{} 를 사용한건 this를 바인딩하기 위해서!!
 //			this.login();
 //		});
+		$("#btn-update").on("click", ()=> { // function(){} 대신 ()=>{} 를 사용한건 this를 바인딩하기 위해서!!
+			this.update();
+		});
 	},
 	
 	save: function(){
@@ -36,6 +39,28 @@ let index = {
 			location.href = "/";
 		}).fail(function(error){
 			// 응답을 실패했을때
+			alert(JSON.stringify(error));
+		});
+	},
+	
+	update: function(){
+		let data = {
+			id : $("#id").val(),
+			username : $("#username").val(),
+			password : $("#password").val(),
+			email : $("#email").val()
+		};
+		
+		$.ajax({
+			type: "PUT",
+			url: "/user/updateProc",
+			data: JSON.stringify(data),
+			contentType: "application/json; charset=utf-8",
+			dataType: "json"
+		}).done(function(resp){
+			alert("회원정보수정이 완료되었습니다.");
+			location.href = "/";
+		}).fail(function(error){
 			alert(JSON.stringify(error));
 		});
 	}
