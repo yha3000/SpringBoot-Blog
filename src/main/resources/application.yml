@@ -33,3 +33,7 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
+      
+# 절대 노출 되면 안됨
+hyeon:
+  key: hyeon1234
