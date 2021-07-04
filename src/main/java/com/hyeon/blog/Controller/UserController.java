@@ -1,4 +1,4 @@
-package com.hyeon.blog.Controller;
+package com.hyeon.blog.controller;
 
 import java.security.Principal;
 

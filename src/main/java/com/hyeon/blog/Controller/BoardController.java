@@ -1,4 +1,4 @@
-package com.hyeon.blog.Controller;
+package com.hyeon.blog.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;

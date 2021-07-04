@@ -1,4 +1,4 @@
-package com.hyeon.blog.Controller.api;
+package com.hyeon.blog.controller.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hyeon.blog.config.auth.PrincipalDetail;
+import com.hyeon.blog.dto.ReplySaveRequestDto;
 import com.hyeon.blog.dto.ResponseDto;
 import com.hyeon.blog.model.Board;
 import com.hyeon.blog.service.BoardService;
@@ -38,4 +39,13 @@ public class BoardApiController {
 		boardService.update(id, board);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
 	}
+	
+	// 데이터 받을 때 컨트롤러에서 DTO를 만들어서 받는게 좋다
+	@PostMapping("/api/board/{boardId}/reply")
+	public ResponseDto<Integer> replySave(@RequestBody ReplySaveRequestDto replySaveRequestDto) {
+//		boardService.replySave(principal.getUser(), boardId, reply);
+		boardService.replySave(replySaveRequestDto);
+		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+	}
+	
 }

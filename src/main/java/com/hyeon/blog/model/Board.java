@@ -13,8 +13,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 
 import org.hibernate.annotations.CreationTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -53,7 +56,11 @@ public class Board {
 	// Board = One, Reply = Many
 	// mappedBy 연관관계의 주인이 아니다 (난 FK가 아니에요)
 	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER) 
-	private List<Reply> reply;
+	// 무시할 속성이나 속성 목록을 표시하는데 사용됨
+	// 무한 참조 방지
+	@JsonIgnoreProperties({"board"})
+	@OrderBy("id desc")
+	private List<Reply> replys;
 	
 	@CreationTimestamp
 	private Timestamp createDate;

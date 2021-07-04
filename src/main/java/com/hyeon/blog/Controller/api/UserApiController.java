@@ -1,4 +1,4 @@
-package com.hyeon.blog.Controller.api;
+package com.hyeon.blog.controller.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
