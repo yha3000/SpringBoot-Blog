@@ -3,6 +3,7 @@ package com.hyeon.blog.model;
 import java.sql.Timestamp;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -55,7 +56,8 @@ public class Board {
 	
 	// Board = One, Reply = Many
 	// mappedBy 연관관계의 주인이 아니다 (난 FK가 아니에요)
-	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER) 
+	// cascade = CascadeType.REMOVE (게시글을 지울때 댓글도 다 지우겠다)
+	@OneToMany(mappedBy = "board", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE) 
 	// 무시할 속성이나 속성 목록을 표시하는데 사용됨
 	// 무한 참조 방지
 	@JsonIgnoreProperties({"board"})

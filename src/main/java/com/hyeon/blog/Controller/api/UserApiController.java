@@ -27,7 +27,6 @@ public class UserApiController {
 //	@PostMapping("/api/user")
 	@PostMapping("/auth/joinProc") // 시큐리티
 	public ResponseDto<Integer> save(@RequestBody User user) { // username, password, email
-		System.out.println("UserApiController : save 호출됨");
 		// 실제로 DB에 insert를 하고 아래에서 return이 되면 된다.
 		userService.save(user);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1); // 자바오브젝트를 JSON으로 변환해서 리턴 (JackSon)
@@ -36,7 +35,6 @@ public class UserApiController {
 	@PutMapping("/user/updateProc")
 //	public ResponseDto<Integer> update(@RequestBody User user, @AuthenticationPrincipal PrincipalDetail principal, HttpSession session) {
 	public ResponseDto<Integer> update(@RequestBody User user) { // id, password, email // key=value, x-www-form-urlencoded
-		System.out.println("UserApiController : update 호출됨");
 		userService.update(user);
 		
 		// 여기서는 트랜잭션이 종료되기 때문에 DB의 값은 변경이 됐음
