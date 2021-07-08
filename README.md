@@ -1,4 +1,4 @@
-# SpringBoot-Blog
+# SpringBoot-JSP-Blog
 
 "BACK : SringBoot, SpringSecurity, MAVEN"
 
@@ -6,4 +6,4 @@
 
 "DATABASE : JPA, Hibernate, Mysql"
 
-"ETC : RESTAPI, JackSon, lombok, JSON, Ajax"
+"ETC : RESTAPI, JackSon, lombok, JSON, Ajax, OAuth(Kakao)"
